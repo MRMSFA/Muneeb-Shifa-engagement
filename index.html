@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Invitation - Muneeb & Shifa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@600;700&family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            DEFAULT: '#FAF5EE',
+                            card: '#F6EFE5',
+                            dark: '#E8DCB8'
+                        },
+                        royalblue: {
+                            DEFAULT: '#102A45',
+                            dark: '#081728',
+                            light: '#1D4570'
+                        },
+                        gold: {
+                            light: '#F3E5AB',
+                            DEFAULT: '#C59B27',
+                            dark: '#8C6C11',
+                            shimmer: '#D4AF37'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        display: ['Cinzel Decorative', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
+                        calligraphy: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0A192F;
+            background-image: 
+                radial-gradient(circle at 50% 30%, #173254 0%, #081728 70%),
+                radial-gradient(circle at 10% 90%, rgba(197, 155, 39, 0.1) 0%, transparent 40%);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        /* Metallic Gold Gradient Text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #A88120 0%, #E6C665 40%, #B88E1D 70%, #947214 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-box-shadow {
+            box-shadow: 0 15px 35px -5px rgba(16, 42, 69, 0.5), 0 0 20px rgba(197, 155, 39, 0.2);
+        }
+
+        /* 3D Envelope Container & Styles */
+        .envelope-wrapper {
+            perspective: 1000px;
+        }
+
+        .envelope {
+            position: relative;
+            width: 310px;
+            height: 210px;
+            background: linear-gradient(145deg, #102A45, #081728);
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(197, 155, 39, 0.25);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(197, 155, 39, 0.4);
+        }
+
+        @media (min-width: 640px) {
+            .envelope {
+                width: 440px;
+                height: 300px;
+            }
+        }
+
+        .envelope:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Envelope Flap */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 155px solid transparent;
+            border-right: 155px solid transparent;
+            border-top: 125px solid #183A5E;
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, z-index 0.1s 0.5s;
+            z-index: 5;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+        }
+
+        @media (min-width: 640px) {
+            .envelope-flap {
+                border-left-width: 220px;
+                border-right-width: 220px;
+                border-top-width: 175px;
+            }
+        }
+
+        .envelope-pocket {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 155px solid #0D233A;
+            border-right: 155px solid #0D233A;
+            border-bottom: 110px solid #133252;
+            border-radius: 0 0 8px 8px;
+            z-index: 4;
+        }
+
+        @media (min-width: 640px) {
+            .envelope-pocket {
+                border-left-width: 220px;
+                border-right-width: 220px;
+                border-bottom-width: 150px;
+            }
+        }
+
+        /* Golden Wax Seal */
+        .wax-seal {
+            position: absolute;
+            top: 95px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 58px;
+            height: 58px;
+            background: radial-gradient(circle, #E6C665 0%, #C59B27 70%, #7A5B0B 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.5);
+            z-index: 6;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            border: 2px solid #FFD700;
+        }
+
+        @media (min-width: 640px) {
+            .wax-seal {
+                top: 140px;
+                width: 75px;
+                height: 75px;
+            }
+        }
+
+        .wax-seal-inner {
+            width: 82%;
+            height: 82%;
+            border: 1.5px dashed rgba(16, 42, 69, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #102A45;
+            text-shadow: 0 1px 1px rgba(255,215,0,0.6);
+            background: radial-gradient(circle, #F5DC8C 0%, #C59B27 100%);
+        }
+
+        /* Open State Animations */
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope.open .wax-seal {
+            opacity: 0;
+            transform: translateX(-50%) scale(0.5);
+            pointer-events: none;
+        }
+
+        /* Card Slide Out */
+        .preview-card-inside {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            background: #F6EFE5;
+            border-radius: 6px;
+            z-index: 2;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            border: 1px solid #C59B27;
+        }
+
+        .envelope.open .preview-card-inside {
+            transform: translateY(-120px) scale(1.05);
+        }
+
+        @media (min-width: 640px) {
+            .envelope.open .preview-card-inside {
+                transform: translateY(-160px) scale(1.05);
+            }
+        }
+
+        /* Confetti Canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* Floral Corner Ornaments on Outer Card */
+        .floral-corner {
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            pointer-events: none;
+            z-index: 15;
+        }
+        @media (min-width: 640px) {
+            .floral-corner { width: 110px; height: 110px; }
+        }
+
+        .fl-top-left { top: 0; left: 0; }
+        .fl-top-right { top: 0; right: 0; transform: scaleX(-1); }
+        .fl-bottom-left { bottom: 0; left: 0; transform: scaleY(-1); }
+        .fl-bottom-right { bottom: 0; right: 0; transform: scale(-1); }
+
+        /* Outer Royal Blue Floral Border Frame */
+        .royal-border-frame {
+            border: 10px solid #102A45;
+            border-image: linear-gradient(to bottom right, #102A45, #1D4570, #102A45) 1;
+            position: relative;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #081728;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C59B27;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col justify-between items-center relative selection:bg-gold selection:text-royalblue-dark">
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Header & Share Bar -->
+    <header class="w-full max-w-4xl px-4 py-4 flex justify-between items-center z-40">
+        <div class="flex items-center space-x-2">
+            <span class="font-serif text-xs md:text-sm text-gold-light tracking-widest uppercase">M & S • 2026</span>
+        </div>
+        <div class="flex items-center space-x-2 sm:space-x-3">
+            <button id="copy-link-btn" class="p-2.5 rounded-full bg-royalblue/80 border border-gold/40 text-gold-light hover:bg-gold hover:text-royalblue-dark transition-all duration-300 shadow-md text-xs sm:text-sm flex items-center space-x-1.5" title="Copy Website Link">
+                <i class="fas fa-link"></i>
+                <span class="hidden sm:inline">Copy Link</span>
+            </button>
+            <button id="music-toggle" class="p-2.5 rounded-full bg-royalblue/80 border border-gold/40 text-gold-light hover:bg-gold hover:text-royalblue-dark transition-all duration-300 shadow-md text-xs sm:text-sm flex items-center space-x-1.5">
+                <i id="music-icon" class="fas fa-music"></i>
+                <span id="music-text" class="hidden sm:inline">Audio</span>
+            </button>
+            <button id="share-btn" class="px-3.5 py-2 rounded-full bg-gold text-royalblue-dark font-semibold hover:bg-gold-light transition-all duration-300 shadow-md text-xs sm:text-sm flex items-center space-x-1.5">
+                <i class="fab fa-whatsapp text-lg"></i>
+                <span>Share</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN INTERACTIVE SECTION -->
+    <main class="w-full max-w-2xl px-3 sm:px-6 flex-grow flex flex-col items-center justify-center my-4 z-30">
+        
+        <!-- ENVELOPE INITIAL VIEW -->
+        <div id="envelope-section" class="flex flex-col items-center justify-center py-8">
+            <div class="text-center mb-6 space-y-1">
+                <p class="text-gold-light font-script text-3xl sm:text-4xl">You are cordially invited</p>
+                <p class="text-xs sm:text-sm tracking-widest text-gold-light/80 uppercase font-serif">Tap the wax seal to open invitation</p>
+            </div>
+
+            <div class="envelope-wrapper">
+                <div id="envelope" class="envelope">
+                    <!-- Envelope Top Flap -->
+                    <div class="envelope-flap"></div>
+                    
+                    <!-- Wax Seal Button -->
+                    <div class="wax-seal">
+                        <div class="wax-seal-inner">
+                            <span class="text-base sm:text-lg tracking-tighter">M&S</span>
+                        </div>
+                    </div>
+
+                    <!-- Inner Card Preview -->
+                    <div class="preview-card-inside flex flex-col items-center justify-center p-3 text-center">
+                        <div class="w-8 h-8 rounded-full border border-gold/50 flex items-center justify-center mb-1">
+                            <i class="fas fa-ring text-gold text-xs"></i>
+                        </div>
+                        <p class="font-serif text-[10px] sm:text-xs text-royalblue uppercase tracking-widest">Engagement</p>
+                        <p class="font-script text-royalblue-light text-base sm:text-xl">Muneeb & Shifa</p>
+                    </div>
+
+                    <!-- Envelope Pocket -->
+                    <div class="envelope-pocket"></div>
+                </div>
+            </div>
+
+            <button id="open-btn" class="mt-10 px-8 py-3 rounded-full bg-gradient-to-r from-gold-dark via-gold to-gold-dark text-royalblue-dark font-serif font-bold tracking-wider hover:brightness-110 transform hover:scale-105 transition-all shadow-lg text-sm uppercase flex items-center space-x-2">
+                <span>Open Invitation</span>
+                <i class="fas fa-envelope-open"></i>
+            </button>
+        </div>
+
+        <!-- FULL INVITATION CARD (REVEALED) -->
+        <div id="card-section" class="hidden w-full transition-all duration-1000 opacity-0 transform translate-y-10">
+            
+            <!-- MAIN CARD CONTAINER (Cream Parchment with Royal Blue & Floral Elements) -->
+            <div class="relative w-full bg-[#FAF5EE] rounded-xl p-4 sm:p-8 border-4 border-[#102A45] shadow-2xl overflow-hidden gold-box-shadow">
+                
+                <!-- Floral Corner SVGs -->
+                <svg class="floral-corner fl-top-left" viewBox="0 0 120 120" fill="none">
+                    <circle cx="20" cy="20" r="14" fill="#8B0000"/>
+                    <circle cx="42" cy="18" r="10" fill="#102A45"/>
+                    <circle cx="18" cy="42" r="10" fill="#102A45"/>
+                    <path d="M 5 5 Q 60 5, 60 60 Q 5 60, 5 5 Z" fill="#C59B27" opacity="0.3"/>
+                    <circle cx="30" cy="30" r="6" fill="#D4AF37"/>
+                </svg>
+                <svg class="floral-corner fl-top-right" viewBox="0 0 120 120" fill="none">
+                    <circle cx="20" cy="20" r="14" fill="#8B0000"/>
+                    <circle cx="42" cy="18" r="10" fill="#102A45"/>
+                    <circle cx="18" cy="42" r="10" fill="#102A45"/>
+                    <path d="M 5 5 Q 60 5, 60 60 Q 5 60, 5 5 Z" fill="#C59B27" opacity="0.3"/>
+                </svg>
+                <svg class="floral-corner fl-bottom-left" viewBox="0 0 120 120" fill="none">
+                    <circle cx="20" cy="20" r="14" fill="#8B0000"/>
+                    <circle cx="42" cy="18" r="10" fill="#102A45"/>
+                </svg>
+                <svg class="floral-corner fl-bottom-right" viewBox="0 0 120 120" fill="none">
+                    <circle cx="20" cy="20" r="14" fill="#8B0000"/>
+                    <circle cx="42" cy="18" r="10" fill="#102A45"/>
+                </svg>
+
+                <!-- CARD INNER PARCHMENT BORDER -->
+                <div class="border-2 border-[#C59B27]/60 rounded-lg p-4 sm:p-8 flex flex-col items-center text-center relative z-10 bg-[#FAF5EE]/90">
+                    
+                    <!-- Wedding Rings Icon -->
+                    <div class="my-2">
+                        <svg class="w-14 h-14 sm:w-18 sm:h-18 mx-auto filter drop-shadow-sm" viewBox="0 0 100 100" fill="none">
+                            <circle cx="38" cy="50" r="22" stroke="url(#goldRingGrad)" stroke-width="5"/>
+                            <circle cx="62" cy="50" r="22" stroke="url(#goldRingGrad)" stroke-width="5"/>
+                            <path d="M 50 32 L 53 38 L 47 38 Z" fill="#D4AF37"/>
+                            <defs>
+                                <linearGradient id="goldRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#F5DC8C"/>
+                                    <stop offset="50%" stop-color="#C59B27"/>
+                                    <stop offset="100%" stop-color="#7A5B0B"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+
+                    <!-- Invitation Subtitle -->
+                    <p class="text-[#5C4D26] font-sans text-xs sm:text-sm tracking-wide mb-3 max-w-xs font-medium">
+                        We invite you to join us for our engagement celebration
+                    </p>
+
+                    <!-- Main Title -->
+                    <h1 class="font-display text-2xl sm:text-4xl md:text-5xl gold-gradient-text tracking-wider leading-tight my-1 font-bold uppercase">
+                        THE BEGINNING<br>OF OUR STORY
+                    </h1>
+
+                    <!-- Decorative Golden Divider -->
+                    <div class="w-28 h-0.5 bg-gradient-to-r from-transparent via-[#C59B27] to-transparent my-4"></div>
+
+                    <!-- Couple Names -->
+                    <div class="my-3 space-y-1">
+                        <h2 class="font-calligraphy italic text-2xl sm:text-3xl md:text-4xl text-[#102A45] font-semibold tracking-wide">
+                            Muneeb Ur Rehman
+                        </h2>
+                        <p class="font-script text-[#C59B27] text-3xl sm:text-4xl my-1">&amp;</p>
+                        <h2 class="font-calligraphy italic text-2xl sm:text-3xl md:text-4xl text-[#102A45] font-semibold tracking-wide">
+                            Shifa Farhan
+                        </h2>
+                    </div>
+
+                    <!-- Date & Time Section -->
+                    <div class="w-full max-w-md my-5 py-3 border-y-2 border-[#C59B27]/50 flex items-center justify-around font-serif text-[#3D3012] text-xs sm:text-sm md:text-base">
+                        <div class="flex-1 text-center font-semibold tracking-widest uppercase">
+                            WEDNESDAY
+                        </div>
+                        <div class="px-4 border-x-2 border-[#C59B27]/50 flex flex-col items-center">
+                            <span class="text-[10px] text-[#A88120] font-bold tracking-widest uppercase">NOV</span>
+                            <span class="text-2xl sm:text-3xl font-bold text-[#8C6C11] leading-none py-0.5">25TH</span>
+                            <span class="text-[10px] text-[#A88120] font-bold tracking-widest">2026</span>
+                        </div>
+                        <div class="flex-1 text-center font-semibold tracking-widest uppercase">
+                            AT 09 PM
+                        </div>
+                    </div>
+
+                    <!-- Venue -->
+                    <div class="mb-5 space-y-1">
+                        <p class="text-xs text-[#8C6C11] uppercase tracking-widest font-serif font-bold">At</p>
+                        <p class="font-serif text-base sm:text-xl text-[#102A45] font-bold tracking-wide">
+                            THE OPERA BALLROOM
+                        </p>
+                        <p class="text-xs sm:text-sm text-[#4A3E20] font-medium max-w-xs mx-auto">
+                            North Nazimabad, Block H, Karachi
+                        </p>
+                    </div>
+
+                    <!-- Monogram Stamp -->
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#C59B27] flex items-center justify-center relative my-2 bg-[#FAF5EE] shadow-md">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-[#C59B27]/50 flex items-center justify-center">
+                            <span class="font-serif font-bold text-lg sm:text-xl gold-gradient-text tracking-tighter">M&amp;S</span>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <p class="font-sans text-xs sm:text-sm text-[#5C4D26] italic max-w-sm mt-3">
+                        "We look forward to sharing this special moment with you."
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- ACTION BUTTONS GRID -->
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+                <!-- Add to Calendar -->
+                <a id="gcal-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Engagement+Celebration+-+Muneeb+%26+Shifa&dates=20261125T160000Z/20261125T190000Z&details=We+invite+you+to+join+us+for+our+engagement+celebration!&location=The+Opera+Ballroom,+Block+H,+North+Nazimabad,+Karachi" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-royalblue/90 hover:bg-royalblue border border-gold/40 text-gold-light text-xs sm:text-sm font-medium transition-all shadow-md">
+                    <i class="far fa-calendar-plus text-gold"></i>
+                    <span>Google Calendar</span>
+                </a>
+
+                <!-- Venue Map -->
+                <a id="map-btn" href="https://maps.google.com/?q=The+Opera+Ballroom+Block+H+North+Nazimabad+Karachi" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-royalblue/90 hover:bg-royalblue border border-gold/40 text-gold-light text-xs sm:text-sm font-medium transition-all shadow-md">
+                    <i class="fas fa-map-marker-alt text-gold"></i>
+                    <span>Get Directions</span>
+                </a>
+
+                <!-- RSVP Modal Trigger -->
+                <button id="rsvp-modal-btn" class="flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-gradient-to-r from-gold-dark via-gold to-gold-dark text-royalblue-dark font-semibold text-xs sm:text-sm transition-all shadow-lg hover:brightness-110">
+                    <i class="fas fa-check-circle"></i>
+                    <span>RSVP &amp; Wishes</span>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full py-4 text-center text-xs text-gold-light/60 z-30 font-light">
+        <p>Engagement Invitation • Muneeb Ur Rehman &amp; Shifa Farhan</p>
+    </footer>
+
+    <!-- RSVP MODAL -->
+    <div id="rsvp-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-royalblue-dark border border-gold/60 rounded-2xl p-6 w-full max-w-md relative shadow-2xl text-left">
+            <button id="close-rsvp" class="absolute top-4 right-4 text-gold-light/60 hover:text-gold-light text-lg">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <h3 class="font-serif text-xl text-gold-light font-bold mb-1">RSVP &amp; Best Wishes</h3>
+            <p class="text-xs text-gray-300 mb-4">Please let us know if you will attend our celebration.</p>
+
+            <form id="rsvp-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-serif text-gold-light uppercase tracking-wider mb-1">Your Full Name</label>
+                    <input type="text" id="guest-name" required placeholder="Enter your name" class="w-full bg-royalblue/60 border border-gold/30 rounded-lg px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-gold">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-serif text-gold-light uppercase tracking-wider mb-1">Number of Guests</label>
+                    <select id="guest-count" class="w-full bg-royalblue/60 border border-gold/30 rounded-lg px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-gold">
+                        <option value="1 Person">1 Person</option>
+                        <option value="2 Persons">2 Persons</option>
+                        <option value="3 Persons">3 Persons</option>
+                        <option value="Family">Family</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-serif text-gold-light uppercase tracking-wider mb-1">Attendance Status</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="flex items-center space-x-2 p-2 rounded bg-royalblue/40 border border-gold/20 cursor-pointer">
+                            <input type="radio" name="attendance" value="Joyfully Accepts" checked class="accent-gold">
+                            <span class="text-xs text-gray-200">Joyfully Accepts</span>
+                        </label>
+                        <label class="flex items-center space-x-2 p-2 rounded bg-royalblue/40 border border-gold/20 cursor-pointer">
+                            <input type="radio" name="attendance" value="Regretfully Declines" class="accent-gold">
+                            <span class="text-xs text-gray-200">Declines</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-serif text-gold-light uppercase tracking-wider mb-1">Congratulations Message (Optional)</label>
+                    <textarea id="guest-wishes" rows="2" placeholder="Write your wishes for the couple..." class="w-full bg-royalblue/60 border border-gold/30 rounded-lg px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-gold"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-lg bg-gold text-royalblue-dark font-serif font-bold hover:bg-gold-light transition-all text-sm uppercase mt-2">
+                    Send via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gold text-royalblue-dark px-4 py-2 rounded-full font-medium text-xs shadow-xl opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center space-x-2">
+        <i class="fas fa-info-circle"></i>
+        <span id="toast-msg">Notification</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Sound Chime Effect (Web Audio API)
+        let audioCtx = null;
+        let isMuted = false;
+
+        function playChime() {
+            if (isMuted) return;
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!audioCtx) audioCtx = new AudioContext();
+                
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                notes.forEach((freq, index) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + index * 0.12);
+                    
+                    gain.gain.setValueAtTime(0.15, audioCtx.currentTime + index * 0.12);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + index * 0.12 + 1.2);
+                    
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    
+                    osc.start(audioCtx.currentTime + index * 0.12);
+                    osc.stop(audioCtx.currentTime + index * 0.12 + 1.2);
+                });
+            } catch(e) {
+                console.log("Audio play deferred or muted");
+            }
+        }
+
+        // Confetti Canvas Particle System
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = -20;
+                this.size = Math.random() * 8 + 4;
+                this.speedY = Math.random() * 3 + 2;
+                this.speedX = Math.random() * 2 - 1;
+                this.color = ['#C59B27', '#FFD700', '#102A45', '#8C6C11', '#8B0000'][Math.floor(Math.random() * 5)];
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 4 - 2;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.rotation += this.rotationSpeed;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate((this.rotation * Math.PI) / 180);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        function triggerConfetti() {
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    particles.push(new Particle());
+                }, i * 20);
+            }
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].y > canvas.height) {
+                    particles.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(animateConfetti);
+        }
+        animateConfetti();
+
+        // DOM Elements
+        const envelope = document.getElementById('envelope');
+        const envelopeSection = document.getElementById('envelope-section');
+        const cardSection = document.getElementById('card-section');
+        const openBtn = document.getElementById('open-btn');
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-msg');
+
+        function showToast(message) {
+            toastMsg.textContent = message;
+            toast.classList.remove('opacity-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 3000);
+        }
+
+        // Open Envelope Function
+        function openEnvelope() {
+            if (envelope.classList.contains('open')) return;
+            
+            playChime();
+            envelope.classList.add('open');
+            openBtn.classList.add('opacity-0', 'pointer-events-none');
+
+            setTimeout(() => {
+                triggerConfetti();
+            }, 600);
+
+            setTimeout(() => {
+                envelopeSection.classList.add('hidden');
+                cardSection.classList.remove('hidden');
+                setTimeout(() => {
+                    cardSection.classList.remove('opacity-0', 'translate-y-10');
+                }, 50);
+            }, 1600);
+        }
+
+        envelope.addEventListener('click', openEnvelope);
+        openBtn.addEventListener('click', openEnvelope);
+
+        // Music Toggle
+        const musicToggle = document.getElementById('music-toggle');
+        const musicIcon = document.getElementById('music-icon');
+        musicToggle.addEventListener('click', () => {
+            isMuted = !isMuted;
+            if (isMuted) {
+                musicIcon.className = "fas fa-volume-mute";
+                showToast("Sound Muted");
+            } else {
+                musicIcon.className = "fas fa-music";
+                playChime();
+                showToast("Sound Enabled");
+            }
+        });
+
+        // Copy Link Feature
+        const copyLinkBtn = document.getElementById('copy-link-btn');
+        copyLinkBtn.addEventListener('click', () => {
+            const pageUrl = window.location.href;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(pageUrl).then(() => {
+                    showToast("Link copied to clipboard!");
+                }).catch(() => {
+                    document.execCommand('copy');
+                    showToast("Link copied!");
+                });
+            } else {
+                document.execCommand('copy');
+                showToast("Link copied!");
+            }
+        });
+
+        // WhatsApp Share Button
+        const shareBtn = document.getElementById('share-btn');
+        shareBtn.addEventListener('click', () => {
+            const currentUrl = window.location.href;
+            const text = encodeURIComponent(
+                "✨ You are cordially invited! ✨\n\n" +
+                "Join us for the Engagement Celebration of\n" +
+                "Muneeb Ur Rehman & Shifa Farhan\n\n" +
+                "📅 Date: Wednesday, Nov 25th, 2026\n" +
+                "⏰ Time: 09:00 PM\n" +
+                "📍 Venue: The Opera Ballroom, North Nazimabad, Block H, Karachi\n\n" +
+                "Tap the link to open your interactive invitation envelope 👇\n" +
+                currentUrl
+            );
+            window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+        });
+
+        // RSVP Modal Logic
+        const rsvpModalBtn = document.getElementById('rsvp-modal-btn');
+        const rsvpModal = document.getElementById('rsvp-modal');
+        const closeRsvp = document.getElementById('close-rsvp');
+        const rsvpForm = document.getElementById('rsvp-form');
+
+        rsvpModalBtn.addEventListener('click', () => {
+            rsvpModal.classList.remove('hidden');
+        });
+
+        closeRsvp.addEventListener('click', () => {
+            rsvpModal.classList.add('hidden');
+        });
+
+        rsvpModal.addEventListener('click', (e) => {
+            if (e.target === rsvpModal) rsvpModal.classList.add('hidden');
+        });
+
+        rsvpForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('guest-name').value;
+            const count = document.getElementById('guest-count').value;
+            const status = document.querySelector('input[name="attendance"]:checked').value;
+            const wishes = document.getElementById('guest-wishes').value;
+
+            let text = `*RSVP & Wishes Response*\n\n` +
+                       `*Name:* ${name}\n` +
+                       `*Guests:* ${count}\n` +
+                       `*Status:* ${status}\n`;
+
+            if (wishes.trim() !== '') {
+                text += `*Wishes:* "${wishes}"\n`;
+            }
+
+            text += `\nLooking forward to celebrating with Muneeb Ur Rehman & Shifa Farhan!`;
+
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+            rsvpModal.classList.add('hidden');
+            showToast("Opening WhatsApp with your RSVP message!");
+        });
+    </script>
+</body>
+</html>
